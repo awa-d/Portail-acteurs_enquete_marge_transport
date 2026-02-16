@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide & Documentation - Portail Shiny</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Portail Shiny</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="enqueteur.html">Enquêteur</a></li>
+                <li><a href="superviseur.html">Superviseur</a></li>
+                <li><a href="notes.html">Notes Techniques</a></li>
+                <li><a href="aide.html" class="active">Aide</a></li>
+            </ul>
+
+            <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-icon help">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <h1>Aide & Documentation</h1>
+                <p>Trouvez des réponses à vos questions</p>
+            </div>
+
+            <!-- Tutoriels rapides -->
+            <section class="tutorials" id="tutoriels">
+                <h2>Tutoriels rapides</h2>
+                <div class="tutorial-grid">
+                    <!-- Tutoriel 1 -->
+                    <div class="tutorial-card">
+                        <div class="tutorial-number">1</div>
+                        <h3>Comment lire mes statistiques ?</h3>
+                        <p>
+                            Sur votre dashboard enquêteur, vous trouverez plusieurs indicateurs :
+                        </p>
+                        <ul class="tutorial-list">
+                            <li><strong>Questionnaires soumis :</strong> Nombre total de formulaires envoyés</li>
+                            <li><strong>Taux de validation :</strong> Pourcentage de questionnaires acceptés</li>
+                            <li><strong>Questionnaires en attente :</strong> En cours de vérification par le superviseur</li>
+                            <li><strong>Questionnaires rejetés :</strong> À corriger et renvoyer</li>
+                        </ul>
+                        <div class="tutorial-tip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                            <span>Consultez le graphique d'évolution pour voir votre progression dans le temps.</span>
+                        </div>
+                    </div>
+
+                    <!-- Tutoriel 2 -->
+                    <div class="tutorial-card">
+                        <div class="tutorial-number">2</div>
+                        <h3>Que faire si mon questionnaire est rejeté ?</h3>
+                        <p>
+                            Lorsqu'un questionnaire est rejeté par le superviseur :
+                        </p>
+                        <ol class="tutorial-steps">
+                            <li>Consultez la section "Questionnaires rejetés" de votre dashboard</li>
+                            <li>Cliquez sur le questionnaire pour voir les commentaires du superviseur</li>
+                            <li>Notez les erreurs signalées (champs manquants, incohérences, etc.)</li>
+                            <li>Ouvrez ODK Collect et modifiez le formulaire concerné</li>
+                            <li>Corrigez les erreurs identifiées</li>
+                            <li>Soumettez à nouveau le questionnaire</li>
+                        </ol>
+                        <div class="tutorial-tip warning">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            <span>Attention : Un questionnaire rejeté plus de 3 fois sera définitivement supprimé.</span>
+                        </div>
+                    </div>
+
+                    <!-- Tutoriel 3 -->
+                    <div class="tutorial-card">
+                        <div class="tutorial-number">3</div>
+                        <h3>Comment télécharger le questionnaire ?</h3>
+                        <p>
+                            Pour télécharger le formulaire ODK sur votre tablette/téléphone :
+                        </p>
+                        <ol class="tutorial-steps">
+                            <li>Ouvrez l'application ODK Collect</li>
+                            <li>Allez dans Paramètres → Serveur</li>
+                            <li>Configurez l'URL du serveur (fournie par votre superviseur)</li>
+                            <li>Retournez au menu principal</li>
+                            <li>Cliquez sur "Obtenir un formulaire vide"</li>
+                            <li>Sélectionnez le questionnaire et cliquez sur "Télécharger"</li>
+                        </ol>
+                        <div class="tutorial-tip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                            <span>Le questionnaire XLSForm est également disponible dans la section "Notes Techniques".</span>
+                        </div>
+                    </div>
+
+                    <!-- Tutoriel 4 -->
+                    <div class="tutorial-card">
+                        <div class="tutorial-number">4</div>
+                        <h3>Comment synchroniser mes données ?</h3>
+                        <p>
+                            La synchronisation permet d'envoyer vos questionnaires complétés au serveur :
+                        </p>
+                        <ol class="tutorial-steps">
+                            <li>Assurez-vous d'avoir une connexion internet stable</li>
+                            <li>Dans ODK Collect, allez dans "Envoyer des formulaires finalisés"</li>
+                            <li>Sélectionnez les formulaires à envoyer</li>
+                            <li>Cliquez sur "Envoyer sélectionnés"</li>
+                            <li>Attendez la confirmation d'envoi</li>
+                            <li>Vérifiez sur votre dashboard que les questionnaires apparaissent</li>
+                        </ol>
+                        <div class="tutorial-tip">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span>Synchronisez régulièrement (au moins une fois par jour) pour éviter la perte de données.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vidéos tutorielles -->
+            <section class="videos" id="videos">
+                <h2>Tutoriels vidéo</h2>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <!-- REMPLACEZ par votre vidéo ou utilisez une iframe YouTube/Vimeo -->
+                            <video controls poster="assets/videos/thumb-intro.jpg">
+                                <source src="assets/videos/vid_portail.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            <h3>Introduction au portail</h3>
+                            <p>Découvrez les fonctionnalités principales du portail et comment naviguer entre les sections.</p>
+                            <span class="video-duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                0:51
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <!-- Alternative : Embed YouTube -->
+                            <iframe 
+                                width="100%" 
+                                height="200" 
+                                src="assets/videos/vid_enq.mp4" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Utiliser le dashboard enquêteur</h3>
+                            <p>Guide complet pour comprendre et utiliser toutes les fonctionnalités de votre dashboard personnel.</p>
+                            <span class="video-duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                00:51
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <!-- Alternative : Embed YouTube -->
+                            <iframe 
+                                width="100%" 
+                                height="200" 
+                                src="assets/videos/vid_sup.mp4" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Utiliser le dashboard superviseur</h3>
+                            <p>Guide complet pour comprendre et utiliser toutes les fonctionnalités de votre dashboard superviseur.</p>
+                            <span class="video-duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                12:45
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-placeholder placeholder-only">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                            <p>Vidéo à venir</p>
+                        </div>
+                        <div class="video-info">
+                            <h3>Correction des questionnaires rejetés</h3>
+                            <p>Apprenez à identifier et corriger les erreurs dans les questionnaires rejetés par le superviseur.</p>
+                            <span class="video-duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                 À venir
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq" id="faq">
+                <h2>Questions fréquentes (FAQ)</h2>
+                
+                <div class="faq-container">
+                    <!-- Question 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Comment puis-je modifier mon mot de passe ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Ce portail utilise une authentification simplifiée basée sur votre ID enquêteur/superviseur. 
+                                Pour des raisons de sécurité, contactez votre superviseur si vous souhaitez modifier vos identifiants.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Pourquoi mes statistiques ne se mettent-elles pas à jour ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Les statistiques sont mises à jour toutes les 15 minutes. Si vous venez d'envoyer des questionnaires :
+                            </p>
+                            <ul>
+                                <li>Attendez quelques minutes et rafraîchissez la page (F5)</li>
+                                <li>Vérifiez que vos questionnaires ont bien été envoyés depuis ODK Collect</li>
+                                <li>Assurez-vous d'être connecté avec le bon ID enquêteur</li>
+                            </ul>
+                            <p>
+                                Si le problème persiste après 30 minutes, contactez le support technique.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Comment télécharger les manuels en PDF ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Les manuels sont disponibles à deux endroits :
+                            </p>
+                            <ol>
+                                <li>Dans votre espace (Enquêteur ou Superviseur), après connexion</li>
+                                <li>Dans la section <a href="notes.html">Notes Techniques</a></li>
+                            </ol>
+                            <p>
+                                Cliquez simplement sur le bouton "Télécharger" à côté du document souhaité. 
+                                Le fichier sera enregistré dans votre dossier "Téléchargements".
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Puis-je utiliser le portail sur mon téléphone ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Oui ! Le portail est entièrement responsive et fonctionne sur tous les appareils :
+                            </p>
+                            <ul>
+                                <li>Smartphones (Android et iOS)</li>
+                                <li>Tablettes</li>
+                                <li>Ordinateurs (Windows, Mac, Linux)</li>
+                            </ul>
+                            <p>
+                                Pour une meilleure expérience sur mobile, nous recommandons d'utiliser 
+                                les navigateurs Chrome, Firefox ou Safari.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Combien de temps sont conservées mes données ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Toutes vos données de collecte sont conservées pendant toute la durée de l'enquête, 
+                                plus une période d'archivage de 5 ans conformément aux réglementations en vigueur.
+                            </p>
+                            <p>
+                                Vos données de connexion au portail sont stockées localement dans votre navigateur 
+                                et peuvent être supprimées à tout moment en vous déconnectant.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Que faire en cas d'erreur "Connexion impossible" ?</span>
+                            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Si vous rencontrez ce message d'erreur :
+                            </p>
+                            <ol>
+                                <li>Vérifiez votre connexion internet</li>
+                                <li>Actualisez la page (F5 ou Ctrl+R)</li>
+                                <li>Videz le cache de votre navigateur</li>
+                                <li>Essayez avec un autre navigateur</li>
+                                <li>Vérifiez que votre ID est au bon format (ex: ENQ001 ou SUP001)</li>
+                            </ol>
+                            <p>
+                                Si le problème persiste, contactez le support technique avec une capture d'écran de l'erreur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Contact -->
+            <section class="contact-section" id="contact">
+                <h2>Besoin d'aide supplémentaire ?</h2>
+                <p class="contact-intro">
+                    Notre équipe de support est à votre disposition pour répondre à toutes vos questions.
+                </p>
+
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>support@portail-shiny.com</p>
+                        <a href="mailto:support@portail-shiny.com" class="btn btn-secondary">
+                            Envoyer un email
+                        </a>
+                        <small>Réponse sous 24h ouvrées</small>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon whatsapp">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p>+221 77 777 77 77</p>
+                        <a href="https://wa.me/2217777777" target="_blank" class="btn btn-primary">
+                            Contacter sur WhatsApp
+                        </a>
+                        <small>Disponible 8h-18h (GMT)</small>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <p>+221 787887878</p>
+                        <a href="tel:+221787887878" class="btn btn-secondary">
+                            Appeler
+                        </a>
+                        <small>Lundi-Vendredi, 8h-17h</small>
+                    </div>
+                </div>
+
+                <div class="contact-note">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <p>
+                        Pour un support plus rapide, précisez toujours votre ID (enquêteur ou superviseur) 
+                        et décrivez le problème rencontré avec une capture d'écran si possible.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Portail Shiny - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

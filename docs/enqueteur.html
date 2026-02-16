@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Enquêteur - Portail Shiny</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Portail Shiny</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="enqueteur.html" class="active">Enquêteur</a></li>
+                <li><a href="superviseur.html">Superviseur</a></li>
+                <li><a href="notes.html">Notes Techniques</a></li>
+                <li><a href="aide.html">Aide</a></li>
+            </ul>
+
+            <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-icon enqueteur">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h1>Espace Enquêteur</h1>
+                <p>Accédez à votre dashboard personnel de suivi</p>
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <div class="auth-section" id="authSection">
+                <div class="auth-card">
+                    <h2>Authentification</h2>
+                    <p class="auth-subtitle">Veuillez vous identifier pour accéder au dashboard</p>
+                    
+                    <form id="enqueteurForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input 
+                                type="text" 
+                                id="nom" 
+                                name="nom" 
+                                required 
+                                placeholder="Entrez votre nom"
+                                autocomplete="family-name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input 
+                                type="text" 
+                                id="prenom" 
+                                name="prenom" 
+                                required 
+                                placeholder="Entrez votre prénom"
+                                autocomplete="given-name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idEnqueteur">ID Enquêteur</label>
+                            <input 
+                                type="text" 
+                                id="idEnqueteur" 
+                                name="idEnqueteur" 
+                                required 
+                                placeholder="Ex: AG001"
+                                title="Format: AG suivi de 3 chiffres (ex: AG001)"
+                            >
+                            <small class="form-hint">Format: AG + 3 chiffres (ex: AG001, AG002...)</small>
+                        </div>
+
+                        <div class="form-error" id="formError"></div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            Se connecter
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Section après connexion (cachée par défaut) -->
+            <div class="dashboard-section" id="dashboardSection" style="display: none;">
+                <!-- Message de bienvenue -->
+                <div class="welcome-message">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <p>Bienvenue <strong id="userDisplayName"></strong> !</p>
+                    <button id="logoutBtn" class="btn-logout">Déconnexion</button>
+                </div>
+
+                <!-- Accès au dashboard -->
+                <div class="dashboard-access">
+                    <div class="access-card-large">
+                        <h2>Votre Dashboard Personnel</h2>
+                        <p>Consultez vos statistiques, vos questionnaires soumis et votre progression.</p>
+                        
+                        <div class="action-buttons">
+                            <!-- 
+                                IMPORTANT : Remplacez l'URL ci-dessous par celle de votre application Shiny Enquêteur
+                                Option 1: Ouvrir dans un nouvel onglet (recommandé)
+                                Option 2: Afficher dans un iframe (décommentez la section iframe plus bas)
+                            -->
+                            <a 
+                                href="https://pqwcxi-jean-batabati.shinyapps.io/Enqueteur/" 
+                                target="_blank" 
+                                class="btn btn-primary btn-large"
+                                rel="noopener noreferrer"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="3" y1="9" x2="21" y2="9"/>
+                                    <line x1="9" y1="21" x2="9" y2="9"/>
+                                </svg>
+                                Ouvrir le Dashboard
+                            </a>
+
+                            <button id="toggleIframe" class="btn btn-secondary" style="display: none;">
+                                Afficher ici
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Zone iframe (optionnelle) -->
+                    <div id="iframeContainer" class="iframe-container" style="display: none;">
+                        <div class="iframe-header">
+                            <h3>Dashboard Enquêteur</h3>
+                            <button id="closeIframe" class="btn-close-iframe">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- REMPLACEZ l'URL ci-dessous par votre application Shiny -->
+                        <iframe 
+                            id="shinyIframe" 
+                            src="" 
+                            frameborder="0"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+
+                <!-- Téléchargements -->
+                <div class="downloads-section">
+                    <h2>Ressources disponibles</h2>
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h3>Tutoriel Vidéo</h3>
+                            <p>Apprenez à utiliser le dashboard</p>
+                            <a href="aide.html#videos" class="btn btn-secondary">
+                                Voir les vidéos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aide rapide -->
+                <div class="quick-help">
+                    <h3>Besoin d'aide ?</h3>
+                    <p>Consultez notre section d'aide pour des tutoriels et réponses aux questions fréquentes.</p>
+                    <a href="aide.html" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Aide & Documentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Portail Shiny - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

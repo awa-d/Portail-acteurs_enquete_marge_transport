@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Superviseur - Portail Shiny</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Portail Shiny</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="enqueteur.html">Enquêteur</a></li>
+                <li><a href="superviseur.html" class="active">Superviseur</a></li>
+                <li><a href="notes.html">Notes Techniques</a></li>
+                <li><a href="aide.html">Aide</a></li>
+            </ul>
+
+            <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-icon superviseur">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h1>Espace Superviseur</h1>
+                <p>Contrôle qualité et gestion d'équipe</p>
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <div class="auth-section" id="authSectionSup">
+                <div class="auth-card">
+                    <h2>Authentification Superviseur</h2>
+                    <p class="auth-subtitle">Accédez au dashboard de contrôle qualité</p>
+                    
+                    <form id="superviseurForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="nomSup">Nom</label>
+                            <input 
+                                type="text" 
+                                id="nomSup" 
+                                name="nomSup" 
+                                required 
+                                placeholder="Entrez votre nom"
+                                autocomplete="family-name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prenomSup">Prénom</label>
+                            <input 
+                                type="text" 
+                                id="prenomSup" 
+                                name="prenomSup" 
+                                required 
+                                placeholder="Entrez votre prénom"
+                                autocomplete="given-name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idSuperviseur">ID Superviseur</label>
+                            <input 
+                                type="text" 
+                                id="idSuperviseur" 
+                                name="idSuperviseur" 
+                                required 
+                                placeholder="Ex: SUP99"
+                                title="Format: SUP suivi d'un ou plusieurs chiffres (ex: SUP01, SUP02)"
+                            >
+                            <small class="form-hint">Format: SUP + numéro (ex: SUP01, SUP02)</small>
+                        </div>
+
+                        <div class="form-error" id="formErrorSup"></div>
+
+                        <button type="submit" class="btn btn-secondary btn-full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            Se connecter
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Section après connexion -->
+            <div class="dashboard-section" id="dashboardSectionSup" style="display: none;">
+                <div class="welcome-message">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <p>Bienvenue <strong id="userDisplayNameSup"></strong> !</p>
+                    <button id="logoutBtnSup" class="btn-logout">Déconnexion</button>
+                </div>
+
+                <!-- Accès au dashboard -->
+                <div class="dashboard-access">
+                    <div class="access-card-large">
+                        <h2>Dashboard de Contrôle Qualité</h2>
+                        <p>Supervisez l'équipe, validez les questionnaires et contrôlez la qualité des données collectées.</p>
+                        
+                        <div class="action-buttons">
+                            <!-- REMPLACEZ l'URL par celle de votre application Shiny Superviseur -->
+                            <a 
+                                href="https://pqwcxi-jean-batabati.shinyapps.io/Superviseur/" 
+                                target="_blank" 
+                                class="btn btn-secondary btn-large"
+                                rel="noopener noreferrer"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="3" y1="9" x2="21" y2="9"/>
+                                    <line x1="9" y1="21" x2="9" y2="9"/>
+                                </svg>
+                                Ouvrir le Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Téléchargements -->
+                <div class="downloads-section">
+                    <h2>Documents et Ressources</h2>
+                    <div class="download-cards">
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                                    <polyline points="13 2 13 9 20 9"/>
+                                </svg>
+                            </div>
+                            <h3>Questionnaire Excel</h3>
+                            <p>XLSForm pour ODK Collect</p>
+                            <!-- REMPLACEZ le lien ci-dessous -->
+                            <a href="assets/documents/questionnaire.xlsx" download class="btn btn-download">
+                                Télécharger (XLSX)
+                            </a>
+                        </div>
+
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="12" y1="18" x2="12" y2="12"/>
+                                    <polyline points="9 15 12 18 15 15"/>
+                                </svg>
+                            </div>
+                            <h3>Manuel Superviseur</h3>
+                            <p>Guide complet de supervision</p>
+                            <!-- REMPLACEZ le lien ci-dessous -->
+                            <a href="assets/documents/manuel-superviseur.pdf" download class="btn btn-download">
+                                Télécharger (PDF)
+                            </a>
+                        </div>
+
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                            </div>
+                            <h3>Notes Techniques</h3>
+                            <p>Documentation technique complète</p>
+                            <a href="notes.html" class="btn btn-secondary">
+                                Consulter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistiques rapides -->
+                <div class="quick-stats">
+                    <h2>Outils de supervision</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
+                            <h3>Suivi en temps réel</h3>
+                            <p>Consultez les statistiques live de votre équipe</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                </svg>
+                            </div>
+                            <h3>Validation des données</h3>
+                            <p>Approuvez ou rejetez les questionnaires soumis</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <h3>Rapports</h3>
+                            <p>Générez des rapports de performance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aide rapide -->
+                <div class="quick-help">
+                    <h3>Besoin d'aide ?</h3>
+                    <p>Consultez la documentation ou contactez le support technique.</p>
+                    <div class="help-buttons">
+                        <a href="aide.html" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            Documentation
+                        </a>
+                        <a href="aide.html#contact" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Contacter le support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Portail Shiny - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

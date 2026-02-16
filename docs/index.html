@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Shiny - Accueil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Portail Shiny</span>
+            </div>
+            
+            <!-- Menu burger pour mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="enqueteur.html">Enquêteur</a></li>
+                <li><a href="superviseur.html">Superviseur</a></li>
+                <li><a href="notes.html">Notes Techniques</a></li>
+                <li><a href="aide.html">Aide</a></li>
+            </ul>
+
+            <!-- Toggle mode sombre -->
+            <button class="theme-toggle" id="themeToggle" title="Changer le thème">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Bienvenue sur le Portail Shiny</h1>
+                <p class="hero-subtitle">
+                    Votre plateforme centralisée pour accéder aux dashboards de suivi 
+                    et aux ressources documentaires de l'enquête.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section présentation -->
+        <section class="presentation">
+            <div class="container">
+                <div class="presentation-card">
+                    <h2>À propos de la plateforme</h2>
+                    <p>
+                        Ce portail vous permet d'accéder à deux applications R Shiny dédiées :
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Dashboard Enquêteur</strong> : Suivez vos statistiques personnelles en temps réel</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Dashboard Superviseur</strong> : Contrôlez la qualité et suivez l'équipe</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Documentation complète</strong> : Manuels, tutoriels et support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cartes d'accès -->
+        <section class="access-cards">
+            <div class="container">
+                <h2 class="section-title">Choisissez votre espace</h2>
+                
+                <div class="cards-grid">
+                    <!-- Carte Enquêteur -->
+                    <div class="access-card">
+                        <div class="card-icon enqueteur">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3>Espace Enquêteur</h3>
+                        <p>Accédez à votre dashboard personnel pour suivre vos performances et statistiques.</p>
+                        <a href="enqueteur.html" class="btn btn-primary">
+                            Accéder
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Carte Superviseur -->
+                    <div class="access-card">
+                        <div class="card-icon superviseur">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Espace Superviseur</h3>
+                        <p>Contrôlez la qualité des données et gérez votre équipe d'enquêteurs.</p>
+                        <a href="superviseur.html" class="btn btn-secondary">
+                            Accéder
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section ressources rapides -->
+        <section class="quick-resources">
+            <div class="container">
+                <h2 class="section-title">Ressources rapides</h2>
+                <div class="resources-grid">
+                    <a href="notes.html" class="resource-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                            <polyline points="13 2 13 9 20 9"/>
+                        </svg>
+                        <span>Notes Techniques</span>
+                    </a>
+                    <a href="aide.html" class="resource-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <span>Aide & Documentation</span>
+                    </a>
+                    <a href="aide.html#contact" class="resource-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span>Contacter le support</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Portail Shiny - Tous droits réservés</p>
+            <p class="footer-links">
+                <a href="aide.html">Aide</a> • 
+                <a href="notes.html">Documentation</a> • 
+                <a href="aide.html#contact">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

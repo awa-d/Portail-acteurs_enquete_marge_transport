@@ -9,16 +9,16 @@
 
   * 👤 Compte de test :
 
-    * Nom : …
-    * Prénom : …
-    * ID : …
+    * Nom : Diatta
+    * Prénom : Awa
+    * ID : AG013
 * 🧑‍💼 **Application Shiny – Superviseur** : [ICI](https://pqwcxi-jean-batabati.shinyapps.io/Superviseur/)
 
   * 👤 Compte de test :
 
-    * Nom : …
-    * Prénom : …
-    * ID : …
+    * Nom : Diop
+    * Prénom : Serigne
+    * ID : SUP03
 
 ---
 

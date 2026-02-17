@@ -4,7 +4,7 @@
 
 ## 🔗 Accès au portail
 
-* 🌐 **Portail web** : [https://lien-vers-le-portail](https://lien-vers-le-portail)
+* 🌐 **Portail web** : [ICI](https://awa-d.github.io/Portail-acteurs_enquete_marge_transport/index.html)
 * 📊 **Application Shiny – Enquêteur** : [ICI](https://pqwcxi-jean-batabati.shinyapps.io/Enqueteur/)
 
   * 👤 Compte de test :
@@ -65,9 +65,9 @@ portail-shiny/
 │   │   ├── manuel-superviseur.pdf
 │   │   └── questionnaire.xlsx
 │   └── videos/                # Vidéos tutorielles (optionnel)
-│       ├── tutoriel_dashboard_enq.mp4
-│       ├── tutoriel_dashboard_sup.mp4
-│       └── tutoriel_portailWEB.mp4
+│       ├── vid_enq.mp4
+│       ├── vid_sup.mp4
+│       └── vid_portail.mp4
 │
 └── README.md                  # Documentation du projet
 ```

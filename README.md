@@ -103,9 +103,9 @@ cd portail-acteurs_enquete_marge_transport
 
 Pour toute question technique ou demande d’évolution :
 
-* 👩🏽‍💻 GitHub : [Awa Diaw](https://github.com/awa-d)
-* 👨🏾‍💻 GitHub : [Ameth Faye](https://github.com/ameth08faye)
-* 👨🏽‍💻 GitHub : [Jean-Luc Batabati](https://github.com/Luck-John)
+* 👨🏾‍💻 [Ameth Faye](https://github.com/ameth08faye)
+* 👨🏽‍💻 [Jean-Luc Batabati](https://github.com/Luck-John)
+* 👩🏽‍💻 [Awa Diaw](https://github.com/awa-d)
 
 ---
 
@@ -119,7 +119,6 @@ Pour toute question technique ou demande d’évolution :
 * ✅ Design responsive
 * ✅ Système de téléchargement de documents
 * ✅ FAQ interactive
-* ✅ Historique des versions
 
 ---
 
